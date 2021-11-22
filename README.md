@@ -1,15 +1,14 @@
-# Projekts: FlappyBird spēle
+# Projekts: Snake spēle (čūskiņa)
 
 ## Apraksts
-Spēles mērķis: pēc iespējas ilgāk noturēties "dzīvam", izvairoties no ceļā esošiem šķēršļiem.
+Spēles mērķis: pēc iespējas ilgāk noturēties "dzīvam", neieskrienot savā (čūskas) ķermenī/astē, un pagarināt čūsku, to "pabarojot" ar izkaisītiem elementiem.
 
 ## Galvenās funkcijas
-	- kustības simulēšana (kustošs fons/zeme);
+	- kustības simulēšana (čūska kustās);
 	- datu apstrāde (rezultāts);
-	- šķēršļu ģenerēšana (piem., pēc diapozonā noteiktas distances parādās jauns šķērslis; šī distance ir "ārpus ekrāna");
-	- reālā laika reakcija (spēlētājs kontrolē putnu). 
+	- ķermeņa ģenerēšana (čūska, ēdot, pagarinās);
+	- reālā laika reakcija (spēlētājs kontrolē čūsku). 
 ## Izmantotās tehnoloģijas
 	- C++
-	- SFML library
 ## Izmantotie avoti
-	- [SFML dokumentācija](https://www.sfml-dev.org/style.php)
+	- Pašlaik nav
