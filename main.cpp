@@ -109,7 +109,70 @@ void Input()
 
 void Logic()
 {
-    
+    int prevX = tailX[0];
+    int prevY = tailY[0];
+    int prev2X, prev2Y, i, j;
+    tailX[0] = snakeX;
+    tailY[0] = snakeY;
+    for(i = 0; i < lenTail; i++)
+    {
+        prev2X = tailX[i];
+        prev2Y = tailY[i];
+        tailX[i] = prevX;
+        tailY[i] = prevY;
+        prevX = prev2X;
+        prevY = prev2Y;
+    }
+    switch(dir)
+    {
+        case UP:
+            snakeY--;
+            break;
+        case DOWN:
+            snakeY++;
+            break;
+        case LEFT:
+            snakeX--;
+            break;
+        case RIGHT:
+            snakeX++;
+            break;
+        default:
+            break;
+    }
+    if(snakeX >= width)
+    {
+        snakeX = 0;
+    }
+    else if(snakeX < 0)
+    {
+        snakeX = width - 1;
+    }
+    if(snakeY >= height)
+    {
+        snakeY = 0;
+    }
+    else if(snakeY < 0)
+    {
+        snakeY = height - 1;
+    } // ja čūska iziet no laukuma, tā parādās laukuma otrā galā
+
+    for(i = 0; i < lenTail; i++)
+    {
+        if(tailX[i] == snakeX && tailY[i] == snakeY)
+        {
+            gameOver = true; // ja čūska ietriecas sevī, spēle beidzas
+        }
+    }
+
+    if(snakeX == fruitX && snakeY == fruitY)
+    // ja čūska tieši tajā laukumā, kur auglis, palielinām rezultātu, reģenerējam augli un pagarinām čūskas astes garumu
+    {
+        score += 1;
+        fruitX = rand() % width;
+        fruitY = rand() % height;
+        lenTail++;
+    }
 }
 
 int main()
