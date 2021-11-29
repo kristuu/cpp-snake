@@ -10,5 +10,9 @@ Spēles mērķis: pēc iespējas ilgāk noturēties "dzīvam", neieskrienot sav�
 	- reālā laika reakcija (spēlētājs kontrolē čūsku). 
 ## Izmantotās tehnoloģijas
 	- C++
+	- g++ (compiler)
 ## Izmantotie avoti
-	- Pašlaik nav
+Trīs daļu pamācība "Simple Snake Game" (izmantoju, lai izprastu konceptu)
+	- https://www.youtube.com/watch?v=E_-lMZDi7Uw&t=482s
+	- https://www.youtube.com/watch?v=W1e5wO7XR2w
+	- https://www.youtube.com/watch?v=PSoLD9mVXTA
