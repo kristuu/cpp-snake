@@ -82,7 +82,29 @@ void Draw()
 
 void Input()
 {
+    #define ARROW_UP 72
+    #define ARROW_DOWN 80
+    #define ARROW_LEFT 75
+    #define ARROW_RIGHT 77
+    #define ESCAPE 27
     
+    if(_kbhit())
+    {
+        switch(_getch())
+        {
+            case ARROW_UP:
+                dir = UP;
+            case ARROW_DOWN:
+                dir = DOWN;
+            case ARROW_LEFT:
+                dir = LEFT;
+            case ARROW_RIGHT:
+                dir = RIGHT;
+            case ESCAPE:
+                gameOver = true;
+                break;
+        }
+    }
 }
 
 void Logic()
