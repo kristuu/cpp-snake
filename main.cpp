@@ -9,7 +9,7 @@ const int height = 20;
 int snakeX, snakeY, fruitX, fruitY, score;
 int tailX[100], tailY[100];
 int lenTail;
-enum eDirecton {STOP = 0, LEFT, RIGHT, UP, DOWN};
+enum eDirecton { STOP = 0, LEFT, RIGHT, UP, DOWN};
 eDirecton dir;
 
 void Initialize()
@@ -28,7 +28,7 @@ void Draw()
     int i, j, k;
     system("cls");
 
-    for(i = 0; i < width + 2; i++)
+    for(i = 0; i < width + 1; i++)
     {
         cout << "#";
     }
@@ -73,34 +73,34 @@ void Draw()
         }
         cout << endl;
     }
-    for(i = 0; i < width + 2; i++)
+    for(i = 0; i < width + 1; i++)
     {
         cout << "#";
     }
     cout << endl;
+    cout << "Rezultats: " << score << endl;
+    cout << "Lai beigtu speli, spied taustinu x" << endl;
 }
 
 void Input()
-{
-    #define ARROW_UP 72
-    #define ARROW_DOWN 80
-    #define ARROW_LEFT 75
-    #define ARROW_RIGHT 77
-    #define ESCAPE 27
-    
+{ 
     if(_kbhit())
     {
         switch(_getch())
         {
-            case ARROW_UP:
-                dir = UP;
-            case ARROW_DOWN:
-                dir = DOWN;
-            case ARROW_LEFT:
+            case 'a':
                 dir = LEFT;
-            case ARROW_RIGHT:
+                break;
+            case 'd':
                 dir = RIGHT;
-            case ESCAPE:
+                break;
+            case 'w':
+                dir = UP;
+                break;
+            case 's':
+                dir = DOWN;
+                break;
+            case 'x':
                 gameOver = true;
                 break;
         }
@@ -114,7 +114,7 @@ void Logic()
     int prev2X, prev2Y, i, j;
     tailX[0] = snakeX;
     tailY[0] = snakeY;
-    for(i = 0; i < lenTail; i++)
+    for(i = 1; i < lenTail; i++)
     {
         prev2X = tailX[i];
         prev2Y = tailY[i];
@@ -125,17 +125,17 @@ void Logic()
     }
     switch(dir)
     {
-        case UP:
-            snakeY--;
-            break;
-        case DOWN:
-            snakeY++;
-            break;
         case LEFT:
             snakeX--;
             break;
         case RIGHT:
             snakeX++;
+            break;
+        case UP:
+            snakeY--;
+            break;
+        case DOWN:
+            snakeY++;
             break;
         default:
             break;
@@ -183,6 +183,7 @@ int main()
         Draw();
         Input();
         Logic();
+        Sleep(10);
     }
     return 0;
 }
